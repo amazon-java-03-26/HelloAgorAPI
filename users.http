@@ -9,7 +9,7 @@ POST localhost:8080/users
 Content-Type: application/json
 
 {
-  "email": "jannick@example.com",
+  "email": "jannick@mail.com",
   "profile": {
     "age": 28,
     "bio": "Loves philosophy and coffee",

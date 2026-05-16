@@ -2,6 +2,8 @@ package com.ironhacker.helloagorapi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,7 +19,11 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotEmpty(message = "Username cannot be empty")
     private String username;
+
+    @Email(message = "Email should be valid") //Optional Challenge: Check how to properly validate an email using regex
     private String email;
 
     @OneToOne(cascade = CascadeType.ALL)

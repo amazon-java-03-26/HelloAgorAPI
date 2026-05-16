@@ -1,5 +1,6 @@
 package com.ironhacker.helloagorapi.service;
 
+import com.ironhacker.helloagorapi.exceptions.AgorApiException;
 import com.ironhacker.helloagorapi.model.User;
 import com.ironhacker.helloagorapi.model.UserProfile;
 import com.ironhacker.helloagorapi.repository.UserProfileRepository;
@@ -16,7 +17,7 @@ public class UserProfileService {
 
     public UserProfile getByUserId(Long userId) {
         var user = userRepository.findById(userId).orElseThrow(
-                () -> new RuntimeException("User not found with id: " + userId)
+                () -> new AgorApiException("User not found with id: " + userId)
         );
 
         return user.getProfile();
@@ -24,7 +25,7 @@ public class UserProfileService {
 
     public UserProfile updateProfile(Long userId, UserProfile updatedProfile) {
         var user = userRepository.findById(userId).orElseThrow(
-                () -> new RuntimeException("User not found with id: " + userId)
+                () -> new AgorApiException("User not found with id: " + userId)
         );
 
         var profile = user.getProfile();

@@ -1,5 +1,6 @@
 package com.ironhacker.helloagorapi.service;
 
+import com.ironhacker.helloagorapi.exceptions.AgorApiException;
 import com.ironhacker.helloagorapi.model.User;
 import com.ironhacker.helloagorapi.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,11 +20,11 @@ public class UserService {
 
      public User findById(Long id) {
          return userRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("User not found with id: " + id)
+                () -> new AgorApiException("User not found with id: " + id)
          );
      }
 
-     public User create(User user) {
+     public User save(User user) {
          return userRepository.save(user);
      }
 

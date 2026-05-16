@@ -24,10 +24,10 @@ public class Philosopher {
     @Column(length = 2000)
     private String biography;
 
-    @OneToMany(mappedBy = "philosopher", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "philosopher", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Quote> quotes = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "followedPhilosophers")
+    @ManyToMany(mappedBy = "followedPhilosophers", fetch = FetchType.EAGER)
     @JsonIgnore
     private List<User> followers = new ArrayList<>();
 }

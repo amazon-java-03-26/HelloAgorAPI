@@ -2,6 +2,7 @@ package com.ironhacker.helloagorapi.controller;
 
 import com.ironhacker.helloagorapi.model.User;
 import com.ironhacker.helloagorapi.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +28,7 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public User save(@RequestBody User user) {
-        return userService.create(user);
+    public User save(@RequestBody @Valid User user) {
+        return userService.save(user);
     }
 }

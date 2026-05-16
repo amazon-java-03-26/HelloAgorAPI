@@ -1,0 +1,40 @@
+### GET all philosophers
+GET localhost:8080/philosophers
+
+### GET all philosophers by id
+GET localhost:8080/philosophers/4
+
+### POST a new philosopher
+POST localhost:8080/philosophers
+Content-Type: application/json
+
+{
+  "biography": "Known for the Pressing method and positional play",
+  "birthYear": 1971,
+  "name": "Pep Guardiola",
+  "quotes": [
+    {
+      "content": "The unexamined game is not worth playing.",
+      "topic": "Football"
+    },
+    {
+      "content": "In football, the result is an impostor. You can do things really, really well but not win. There's something more important than the result, more important than winning and losing, and that is the process.",
+      "topic": "Football"
+    },
+    {
+        "content": "I don't want to be the next X. I want to be the first Pep Guardiola.",
+        "topic": "Football"
+    }
+  ],
+  "school": "Total Football"
+}
+
+
+### GET all quotes
+GET localhost:8080/quotes
+
+### GET all quotes by philosopher id
+GET localhost:8080/quotes/philosophers/2
+
+### GET all quotes by philosopher school
+GET localhost:8080/quotes/philosophers/school/stoicism
